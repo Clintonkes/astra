@@ -3,11 +3,11 @@ import { Phone, Mail, MapPin, Leaf, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 export const BUSINESS = {
-  name: "Alanrich LLC",
-  phone: "+1 (469) 650-2595",
-  phoneHref: "tel:+14696502595",
-  email: "alanrichllc@gmail.com",
-  address: "2741 Royal Avenue, Groves, TX 77619",
+  name: "S Astra LLC",
+  phone: "+1 (814) 232-0658",
+  phoneHref: "tel:+18142320658",
+  email: "admin@sastralawn.com",
+  address: "11950 Allen Rd, Conneaut Lake, PA 16316",
 };
 
 export function SiteNav() {
@@ -26,7 +26,7 @@ export function SiteNav() {
             <Leaf className="size-5" />
           </span>
           <span className="truncate font-display text-lg font-extrabold tracking-tight">
-            Alanrich <span className="text-primary">LLC</span>
+            S Astra <span className="text-primary">LLC</span>
           </span>
         </Link>
         <div className="hidden items-center gap-8 md:flex">
@@ -88,32 +88,44 @@ export function SiteFooter() {
               <Leaf className="size-5" />
             </span>
             <span className="font-display text-lg font-extrabold tracking-tight">
-              Alanrich LLC
+              S Astra LLC
             </span>
           </div>
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-            Professional lawn care and mowing serving Groves, Port Arthur, and the Golden Triangle.
+            Lakefront lawncare and grounds management serving the Conneaut Lake
+            region, Pennsylvania.
           </p>
         </div>
         <div>
-          <h4 className="font-display text-sm font-bold uppercase tracking-widest">Services</h4>
+          <h4 className="font-display text-sm font-bold uppercase tracking-widest">
+            Services
+          </h4>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-            <li>Weekly Mowing</li>
-            <li>Edging & Trimming</li>
-            <li>Yard Cleanup</li>
-            <li>Seasonal Care</li>
+            <li>Lawn Mowing</li>
+            <li>Lakefront Edging</li>
+            <li>Snow & Seasonal</li>
+            <li>Landscaping</li>
           </ul>
         </div>
         <div>
-          <h4 className="font-display text-sm font-bold uppercase tracking-widest">Contact</h4>
+          <h4 className="font-display text-sm font-bold uppercase tracking-widest">
+            Contact
+          </h4>
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
             <li className="flex items-start gap-2">
               <Phone className="mt-0.5 size-4 shrink-0 text-primary" />
-              <a href={BUSINESS.phoneHref} className="hover:text-primary">{BUSINESS.phone}</a>
+              <a href={BUSINESS.phoneHref} className="hover:text-primary">
+                {BUSINESS.phone}
+              </a>
             </li>
             <li className="flex items-start gap-2">
               <Mail className="mt-0.5 size-4 shrink-0 text-primary" />
-              <a href={`mailto:${BUSINESS.email}`} className="hover:text-primary break-all">{BUSINESS.email}</a>
+              <a
+                href={`mailto:${BUSINESS.email}`}
+                className="hover:text-primary break-all"
+              >
+                {BUSINESS.email}
+              </a>
             </li>
             <li className="flex items-start gap-2">
               <MapPin className="mt-0.5 size-4 shrink-0 text-primary" />
@@ -122,7 +134,9 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <h4 className="font-display text-sm font-bold uppercase tracking-widest">Hours</h4>
+          <h4 className="font-display text-sm font-bold uppercase tracking-widest">
+            Hours
+          </h4>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
             <li>Mon–Fri · 7am–7pm</li>
             <li>Saturday · 8am–5pm</li>
@@ -132,8 +146,10 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-primary/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-6 text-xs text-muted-foreground md:flex-row">
-          <p>© {new Date().getFullYear()} Alanrich LLC · All rights reserved.</p>
-          <Link to="/admin" className="hover:text-primary">Staff Login</Link>
+          <p>© {new Date().getFullYear()} S Astra LLC · All rights reserved.</p>
+          <Link to="/admin" className="hover:text-primary">
+            Staff Login
+          </Link>
         </div>
       </div>
     </footer>

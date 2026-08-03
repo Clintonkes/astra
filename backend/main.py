@@ -22,12 +22,14 @@ from email_service import (
     contact_confirmation_html, contact_admin_notification_html,
 )
 
-app = FastAPI(title="Aveness API", version="1.0.0")
+app = FastAPI(title="S Astra LLC API", version="1.0.0")
 
 origins = [
     "http://localhost:5173",
     "http://localhost:3000",
     "http://127.0.0.1:5173",
+    "https://sastralawn.com",
+    "https://www.sastralawn.com",
 ]
 render_url = os.getenv("RENDER_EXTERNAL_URL")
 if render_url:
@@ -57,7 +59,7 @@ def _seed_admin():
         # guessable default.
         return
 
-    admin_email = os.getenv("ADMIN_EMAIL", "admin@avenessllc.com")
+    admin_email = os.getenv("ADMIN_EMAIL", "admin@sastralawn.com")
     db = SessionLocal()
     try:
         existing = db.query(Admin).first()
@@ -77,7 +79,7 @@ def _seed_admin():
 def _generate_reference():
     ts = str(int(time.time()))[-6:]
     rand = "".join(random.choices(string.digits, k=3))
-    return f"AVN-{ts}{rand}"
+    return f"SAL-{ts}{rand}"
 
 
 # ── Public Endpoints ──────────────────────────────────────────────
@@ -105,7 +107,7 @@ def create_booking(data: BookingCreate, db: Session = Depends(get_db)):
 
     send_email(
         to_email=data.email,
-        subject=f"Your Alanrich Service Request {reference}",
+        subject=f"Your S Astra Service Request {reference}",
         html_body=booking_confirmation_html(
             name=data.name,
             reference=reference,
@@ -136,7 +138,7 @@ def create_contact(data: ContactCreate, db: Session = Depends(get_db)):
 
     send_email(
         to_email=data.email,
-        subject="Thank you for contacting Alanrich",
+        subject="Thank you for contacting S Astra",
         html_body=contact_confirmation_html(
             name=data.name,
             subject=data.subject,
@@ -144,7 +146,7 @@ def create_contact(data: ContactCreate, db: Session = Depends(get_db)):
         ),
     )
 
-    admin_email = os.getenv("ADMIN_EMAIL", "admin@avenessllc.com")
+    admin_email = os.getenv("ADMIN_EMAIL", "admin@sastralawn.com")
     send_email(
         to_email=admin_email,
         subject=f"New Contact: {data.subject or 'No subject'}",
@@ -204,7 +206,7 @@ def update_booking_status(
 
     send_email(
         to_email=booking.email,
-        subject=f"Alanrich Service Update — {booking.reference}",
+        subject=f"S Astra Service Update — {booking.reference}",
         html_body=booking_status_html(
             name=booking.name,
             reference=booking.reference,
