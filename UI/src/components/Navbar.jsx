@@ -28,16 +28,16 @@ export default function Navbar() {
       <div className="max-w-[1320px] mx-auto px-6 lg:px-8 flex items-center justify-between">
         <a href="#st-top" className="flex items-center gap-2">
           <span className="w-9 h-9 rounded-full bg-sastra-sun grid place-items-center"><TreePine className="text-sastra-pine" size={18} /></span>
-          <span className="font-fraunces text-sastra-cream text-xl font-bold tracking-tight">S Astra</span>
-          <span className="font-manrope text-sastra-cream/60 text-[10px] tracking-[0.3em] uppercase border-l border-sastra-cream/30 pl-2">LLC</span>
+          <span className={`font-fraunces text-xl font-bold tracking-tight transition-colors ${scrolled ? "text-sastra-cream" : "text-sastra-pine"}`}>S Astra</span>
+          <span className={`font-manrope text-[10px] tracking-[0.3em] uppercase border-l pl-2 transition-colors ${scrolled ? "text-sastra-cream/60 border-sastra-cream/30" : "text-sastra-pine/60 border-sastra-pine/30"}`}>LLC</span>
         </a>
         <nav className="hidden md:flex items-center gap-8">
           {LINKS.map((l) => (
-            <a key={l.h} href={l.h} className="text-sastra-cream/80 hover:text-sastra-sun text-sm font-medium transition">{l.l}</a>
+            <a key={l.h} href={l.h} className={`text-sm font-medium transition-colors hover:text-sastra-sun ${scrolled ? "text-sastra-cream/80" : "text-sastra-pine/80"}`}>{l.l}</a>
           ))}
           <a href="#st-quote" className="px-5 py-2.5 rounded-full bg-sastra-sun text-sastra-pine font-semibold text-sm hover:bg-sastra-cream transition">Free Quote</a>
         </nav>
-        <button className="md:hidden text-sastra-cream" onClick={() => setOpen(!open)}>{open ? <X size={24} /> : <Menu size={24} />}</button>
+        <button className={`md:hidden transition-colors ${scrolled ? "text-sastra-cream" : "text-sastra-pine"}`} onClick={() => setOpen(!open)}>{open ? <X size={24} /> : <Menu size={24} />}</button>
       </div>
       {open && (
         <motion.div
